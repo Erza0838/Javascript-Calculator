@@ -50,7 +50,7 @@
 		}
 	}	
 	/*Baris akhir lebar maksimal*/
-	/* @media screen and (max-height: 1100px)
+	/*@media screen and (max-height: 1100px)
 	{
 		body
 		{	
@@ -65,7 +65,7 @@
 			height: 179vmin;
 			width: 100vmin;
 		}
-	}	 */
+	}	*/
 }
 
 /*Container calculator*/
@@ -85,12 +85,12 @@ article.Calculator-Container
 article.Calculator-Container > .Output_Number
 {	
 	position: absolute;
+	display: inline-block;
 	display: flex;
 	justify-content: flex-end;
 	align-content: center;
 	flex-direction: row;
 	padding-right: 1.8vmin;
-	letter-spacing: .5vw;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-weight: bold;
 	font-size: clamp(2ex, 2.8vw, 1.56rem);
@@ -98,25 +98,6 @@ article.Calculator-Container > .Output_Number
 	/*color: rgba(255, 255, 255, 1.0);*/
 	transform: translate(3vmin, 8vmin);
 	box-sizing: var(--Box-Size);
-}
-
-.Output_Number + .Output_Operation
-{
-	position: absolute;
-	display: inline-block;
-	display: flex;
-	justify-content: flex-end;
-	align-content: center;
-	flex-direction: row;
-	padding-right: 1.8vmin;
-	letter-spacing: .7vw;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: bold;
-	font-size: clamp(2ex, 2.8vw, 1.56rem);
-	color: var(--Text-Color);
-	/*color: rgba(255, 255, 255, 1.0);*/
-	transform: translate(6vmin, 8vmin);
-	box-sizing: var(--Box-Size);	
 }
 	article.Calculator-Container > main.Button_Container
 	{

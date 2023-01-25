@@ -43,15 +43,6 @@ for(let arithmeticId of operationId)
 }
 // Baris akhir code 
 
-// function ActiveNumbersEvents()
-// {	
-// 	for(var combineNumber = 0; combineNumber <= 5; combineNumber++) 
-// 	{
-// 		return combineNumber
-// 	}
-// }
-// 	ActiveNumbersEvents()
-
 // Function untuk melakukan perhitungan 
 	function CalculateValue(Value_Operator, Value_Number)
 	{	
