@@ -9,6 +9,8 @@ let equalButton = document.getElementById("Equal_Button_Id")
 // Variable untuk menampilkan angka ke monitor
 let displayIdOfNumber = document.getElementById("Display_Output")
 
+let arithmeticOperation = document.getElementById("Display_Output")
+
 // Variable untuk menampilkan hasil perhitungan 
 let showFinalResult = document.getElementById("Display_Result")
 
@@ -27,8 +29,6 @@ for (let idButton of numberIdButton)
 // Baris akhir code
 
 // Baris pengkondisian untuk menampilkan operasi matematika
-let arithmeticOperation = document.getElementById("Display_Output")
-
 for(let arithmeticId of operationId) 
 {
 	let clickarithmeticBtn = arithmeticId.addEventListener("click",
@@ -45,7 +45,6 @@ for(let arithmeticId of operationId)
 // Listener untuk menampilkan simbol sama dengan 
 let equalButtonClicked = equalButton.addEventListener("click",function CalculatedNumber()
 {	 
-	// let numberAndOperator = new Array(numberIdButton,operationId)
 	let numberAndOperator = [window.displayingNumber, window.displayingOperator]
 	for(let newEmptyValue of numberAndOperator) 
 	{
@@ -54,7 +53,7 @@ let equalButtonClicked = equalButton.addEventListener("click",function Calculate
 			if(nullValue.length == numberAndOperator.length)
 			{	
 				let showEmptyArray = showFinalResult
-				showEmptyArray.innerText = delete newEmptyValue[[nullValue]]
+				showEmptyArray.innerText = delete newEmptyValue[nullValue]
 			}
 		}
 	}
