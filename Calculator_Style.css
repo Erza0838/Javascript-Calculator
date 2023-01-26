@@ -73,7 +73,9 @@ article.Calculator-Container
 {	
 	position: relative;
 	background-color: var(--Calculator-Background-Color);
-	display: inline-block;
+	/* display: grid;
+	gap: 1rem;
+	grid-column: auto; */
 	padding: 1.2rem 1.2rem 1.2rem 1.2rem;
 	border-radius: clamp(.4rem, 1.2rem, 1.4rem);
 	width: 33vmax;
@@ -95,7 +97,6 @@ article.Calculator-Container > .Output_Number
 	font-weight: bold;
 	font-size: clamp(2ex, 2.8vw, 1.56rem);
 	color: var(--Text-Color);
-	/*color: rgba(255, 255, 255, 1.0);*/
 	transform: translate(3vmin, 8vmin);
 	box-sizing: var(--Box-Size);
 }
@@ -103,7 +104,6 @@ article.Calculator-Container > .Output_Number
 .Output_Number + .Output_Operation
 {
 	position: absolute;
-	display: inline-block;
 	display: flex;
 	justify-content: flex-end;
 	align-content: center;
@@ -114,7 +114,6 @@ article.Calculator-Container > .Output_Number
 	font-weight: bold;
 	font-size: clamp(2ex, 2.8vw, 1.56rem);
 	color: var(--Text-Color);
-	/*color: rgba(255, 255, 255, 1.0);*/
 	transform: translate(6vmin, 8vmin);
 	box-sizing: var(--Box-Size);	
 }
@@ -125,10 +124,8 @@ article.Calculator-Container > .Output_Number
 		display: flex;		
 		flex-direction: row;
 		gap: 2.5vmin;
-		/*width: 32vmin;*/
 		min-width: 20vmin;
 		min-height: 10vmin;
-		/*min-width: 39vmin;*/
 		justify-content: flex-start;
 		align-content: space-between;
 		padding: 1vmin 0 0 1vmin;

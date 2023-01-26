@@ -18,11 +18,9 @@ for (let idButton of numberIdButton)
 		function Number() 
 		{
 			let displayingNumber = displayIdOfNumber.append(innerText = idButton.value)
-
-			let operationId = document.querySelectorAll("#Operation_Button_Id2")
 			for (let arithmeticId of operationId) 
 			{
-				arithmeticId.disabled = false;
+				arithmeticId.disabled = false
 			}
 		}, false)
 }
@@ -36,53 +34,43 @@ for(let arithmeticId of operationId)
 	let clickarithmeticBtn = arithmeticId.addEventListener("click",
 		function OperationFunction() 
 		{
-			let displayingOperator = [arithmeticOperation.append(innerText = arithmeticId.value)]
-
-			let operationId = document.querySelectorAll("#Operation_Button_Id2");
-
+			let displayingOperator = arithmeticOperation.append(innerText = arithmeticId.value)
 			for (var i = 0, len = operationId.length; i < len; i++)
 			{
-				operationId[i].disabled = true;
+				operationId[i].disabled = true
 			}
 		}, false)
 }
 
-// Listener untuk menampilkan hasil perhitungan
-// let runCalculations = new Promise((IdNumberClicked) =>
-// {
-// 	let saveNumberAndOperator = displayingNumber += displayingOperator
-
-// 	switch(window.ClickIdNumber && window.clickarithmeticBtn)
-// 	{
-// 		case numberIdButton.value :
-// 		case operationId.value :  
-// 		switch(operationId)
-// 		{	
-// 			case "+" : if(saveNumberAndOperator.length > 0 && isNaN(saveNumberAndOperator))
-// 					   {	
-// 							let sumValue = +numberIdButton.value + +numberIdButton.value
-// 							resolve(IdNumberClicked(sumValue))
-// 					   }
-// 			break
-// 		}
-// 		break
-// 	}
-// })
-
-// runCalculations.then( function(sumValue) 
-// {	
-// 	equalButton.addEventListener("click",function CalculatedNumber()
-// 	{	 
-// 		let lastValue = displayingOperator.push(equalButton.value)
-
-// 		return saveNumberAndOperator.innerText = sumValue
-// 	},{once:true})
-// })
-
-equalButton.addEventListener("click",function CalculatedNumber()
+// Listener untuk menampilkan simbol sama dengan 
+let equalButtonClicked = equalButton.addEventListener("click",function CalculatedNumber()
 {	 
-	let lastValue = displayingOperator.push().innerText = equalButton.value
-
-	return lastValue
+	// let numberAndOperator = new Array(numberIdButton,operationId)
+	let numberAndOperator = [window.displayingNumber, window.displayingOperator]
+	for(let newEmptyValue of numberAndOperator) 
+	{
+		for(var nullValue = 0; newEmptyValue > nullValue; nullValue++)
+		{	
+			if(nullValue.length == numberAndOperator.length)
+			{	
+				let showEmptyArray = showFinalResult
+				showEmptyArray.innerText = delete newEmptyValue[[nullValue]]
+			}
+		}
+	}
 },{once:true})
+
+// Listener untuk menampilkan hasil perhitungan
+let runCalculations = new Promise((IdNumberClicked) =>
+{	
+	IdNumberClicked()
+})
+runCalculations.then((equalButtonClicked) =>
+{
+	switch(window.arithmeticId)
+	{	
+		case "+" : let sumValue = showFinalResult.innerText = Number(numberIdButton.value) + Number(numberIdButton.value)
+		break
+	}
+})
 // Baris akhir code
