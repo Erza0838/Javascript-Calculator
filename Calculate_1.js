@@ -7,59 +7,75 @@ let operationId = document.querySelectorAll("#Operation_Button_Id2")
 let equalButton = document.getElementById("Equal_Button_Id")
 
 // Variable untuk menampilkan angka ke monitor
-let displayIdOfNumber = document.getElementById("Display_Output")
-
-let arithmeticOperation = document.getElementById("Display_Output")
+let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
 
 // Variable untuk menampilkan hasil perhitungan 
 let showFinalResult = document.getElementById("Display_Result")
 
-for (let idButton of numberIdButton) 
+// Function untuk menampilkan angka
+function numberButtonActived()
 {
-	let ClickIdNumber = idButton.addEventListener("click",
-		function Number() 
-		{
-			let displayingNumber = displayIdOfNumber.append(innerText = idButton.value)
-			for (let arithmeticId of operationId) 
+	for(let idButton of numberIdButton) 
+	{
+		let ClickIdNumber = idButton.addEventListener("click",
+			function Number() 
 			{
-				arithmeticId.disabled = false
-			}
-		}, false)
+				let displayingNumber = displayIdOfNumberAndOperator.append(innerText = idButton.value)
+				for(let arithmeticId of operationId) 
+				{
+					arithmeticId.disabled = false
+				}
+			}, false)
+	}
 }
-// Baris akhir code
+// Baris akhir function 
 
 // Baris pengkondisian untuk menampilkan operasi matematika
-for(let arithmeticId of operationId) 
+function operationButtonActiced()
 {
-	let clickarithmeticBtn = arithmeticId.addEventListener("click",
-		function OperationFunction() 
-		{
-			let displayingOperator = arithmeticOperation.append(innerText = arithmeticId.value)
-			for (var i = 0, len = operationId.length; i < len; i++)
+	for(let arithmeticId of operationId) 
+	{
+		let clickarithmeticBtn = arithmeticId.addEventListener("click",
+			function OperationFunction() 
 			{
-				operationId[i].disabled = true
-			}
-		}, false)
+				let displayingOperator = displayIdOfNumberAndOperator.append(innerText = arithmeticId.value)
+				for (var i = 0, len = operationId.length; i < len; i++)
+				{
+					operationId[i].disabled = true
+				}
+			}, false)
+	}
 }
+operationButtonActiced()
+// Baris akhir function
 
 // Listener untuk menampilkan simbol sama dengan 
-let equalButtonClicked = equalButton.addEventListener("click",function CalculatedNumber()
-{	 
-	let numberAndOperator = [window.displayingNumber, window.displayingOperator]
-	for(let newEmptyValue of numberAndOperator) 
-	{
-		for(var nullValue = 0; newEmptyValue > nullValue; nullValue++)
-		{	
-			if(nullValue.length == numberAndOperator.length)
-			{	
-				let showEmptyArray = showFinalResult
-				showEmptyArray.innerText = delete newEmptyValue[nullValue]
-			}
-		}
+function equalButtonClicked()
+{	
+	if(numberButtonActived())
+	{	
+		let enabledEqualButton = equalButton.disabled = true
+		equalButton.addEventListener("click", () =>
+		{	 
+			displayIdOfNumber.style.display = "none"
+		},{once:true})
+		return enabledEqualButton
+		// if(displayIdOfNumberAndOperator.nodeValue != "" && displayIdOfNumberAndOperator.nodeValue > 1)
+		// {	
+		// 	if(enabledEqualButton || enabledEqualButton != false)
+		// 	{
+		// 		equalButton.addEventListener("click", () =>
+		// 		{	 
+		// 			return displayIdOfNumber.style.display = "none"
+		// 		},{once:true})
+		// 		return enabledEqualButton
+		// 	}
+		// }
 	}
-},{once:true})
+}
+equalButtonClicked()
+// Baris akhir function 
 
-// Listener untuk menampilkan hasil perhitungan
 let runCalculations = new Promise((IdNumberClicked) =>
 {	
 	IdNumberClicked()

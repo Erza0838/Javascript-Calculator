@@ -4,7 +4,6 @@
 :root
 {	
 	--Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );		
-	/*--Body-Color: rgba(162, 34, 56, 1.0);		*/
 	--Calculator-Background-Color: rgba(255, 255, 255, 1.0);
 	--Box-Size: border-box;
 	--Mouse-Pointer: pointer;
@@ -33,7 +32,7 @@
 @supports (display: var(--Flexibel-Items) )
 {	
 	/*Bagian lebar maksimal*/
-	@media screen and (max-width: 800px)
+	@media screen and (max-width: 600px)
 	{	
 		body
 		{	
@@ -172,9 +171,6 @@ button + main.Horizontal_Right
 }
 	main.Horizontal_Right > button.Horizontal_Equal_Button
 	{	
-		/*position: absolute;*/
-		/*flex-basis: 2;*/
-		/*width: 25%;*/
 		border-radius: 100%;
 		border: .2rem solid var(--Border-Color);
 		background-color: var(--Calculator-Background-Color);
