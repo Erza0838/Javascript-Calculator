@@ -12,6 +12,10 @@ let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
 // Variable untuk menampilkan hasil perhitungan 
 let showFinalResult = document.getElementById("Display_Result")
 
+// Variable untuk mengakses DOM 
+let getDomElement = displayIdOfNumberAndOperator.childNodes.nodeValue
+// Baris akhir variable
+
 // Function untuk menampilkan angka
 function numberButtonActived()
 {
@@ -31,7 +35,7 @@ function numberButtonActived()
 // Baris akhir function 
 
 // Baris pengkondisian untuk menampilkan operasi matematika
-function operationButtonActiced()
+function operationButtonActived()
 {
 	for(let arithmeticId of operationId) 
 	{
@@ -46,35 +50,55 @@ function operationButtonActiced()
 			}, false)
 	}
 }
-operationButtonActiced()
 // Baris akhir function
 
 // Listener untuk menampilkan simbol sama dengan 
 function equalButtonClicked()
 {	
-	if(numberButtonActived())
+	let newValue = new Array([numberButtonActived(),operationButtonActived()])
+
+	let equalButtonInactive = equalButton.disbled += false
+
+	for(let enabledValue of newValue)
 	{	
-		let enabledEqualButton = equalButton.disabled = true
-		equalButton.addEventListener("click", () =>
-		{	 
-			displayIdOfNumber.style.display = "none"
-		},{once:true})
-		return enabledEqualButton
-		// if(displayIdOfNumberAndOperator.nodeValue != "" && displayIdOfNumberAndOperator.nodeValue > 1)
-		// {	
-		// 	if(enabledEqualButton || enabledEqualButton != false)
-		// 	{
-		// 		equalButton.addEventListener("click", () =>
-		// 		{	 
-		// 			return displayIdOfNumber.style.display = "none"
-		// 		},{once:true})
-		// 		return enabledEqualButton
-		// 	}
-		// }
+		for(let comparedValue = 0; enabledValue.value > comparedValue.value; enabledValue++)
+		{	
+			let showNumberAndOperator = getDomElement[enabledValue]
+			if(showNumberAndOperator.style.display = "flex" && showNumberAndOperator.innerText.length == 1 || showNumberAndOperator.innerText.length > 1)
+			{
+				let equalButtonActive
+				if(showNumberAndOperator && equalButtonActive != equalButtonInactive)
+				{	
+					equalButton.addEventListener("click", () =>
+					{	 
+						displayIdOfNumber.style.display = "none"
+					},{once:true})
+					return equalButtonActive.removeAttribute("disabled")
+				}	
+			}
+		}
 	}
 }
 equalButtonClicked()
 // Baris akhir function 
+
+// Function untuk membuat tombol sama dengan aktiv
+// function enabledEachClick()
+// {
+// 	if(numberButtonActived() && operationButtonActived())
+// 	{
+// 		let equalButtonAactive = equalButton.disabled
+// 		return equalButtonActive += true
+// 	}
+// }
+// if(enabledEachClick())
+// {	
+// 	equalButton.addEventListener("click", () =>
+// 	{	 
+// 		displayIdOfNumber.style.display = "none"
+// 	},{once:true})
+// }
+// Baris akhir function
 
 let runCalculations = new Promise((IdNumberClicked) =>
 {	
