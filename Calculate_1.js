@@ -32,6 +32,7 @@ function numberButtonActived()
 			}, false)
 	}
 }
+console.log(numberButtonActived() + [numberIdButton.value])
 // Baris akhir function 
 
 // Baris pengkondisian untuk menampilkan operasi matematika
@@ -52,52 +53,45 @@ function operationButtonActived()
 }
 // Baris akhir function
 
+function EnabledCondition()
+{
+	let equalButtonActiveCondition = equalButton.disbled += true
+	return equalButtonActiveCondition
+}
+
 // Listener untuk menampilkan simbol sama dengan 
 function equalButtonClicked()
 {	
 	let newValue = new Array([numberButtonActived(),operationButtonActived()])
-
-	let equalButtonInactive = equalButton.disbled += false
-
+	let equalButtonInactiveCondition = equalButton.disbled += false
 	for(let enabledValue of newValue)
 	{	
 		for(let comparedValue = 0; enabledValue.value > comparedValue.value; enabledValue++)
 		{	
 			let showNumberAndOperator = getDomElement[enabledValue]
-			if(showNumberAndOperator.style.display = "flex" && showNumberAndOperator.innerText.length == 1 || showNumberAndOperator.innerText.length > 1)
+			if(displayIdOfNumberAndOperator.style.display = "flex" && showNumberAndOperator.length == 1 || showNumberAndOperator.length > 1)
 			{
-				let equalButtonActive
-				if(showNumberAndOperator && equalButtonActive != equalButtonInactive)
-				{	
-					equalButton.addEventListener("click", () =>
-					{	 
-						displayIdOfNumber.style.display = "none"
-					},{once:true})
-					return equalButtonActive.removeAttribute("disabled")
-				}	
+				EnabledCondition()
 			}
 		}
 	}
 }
-equalButtonClicked()
 // Baris akhir function 
 
 // Function untuk membuat tombol sama dengan aktiv
-// function enabledEachClick()
-// {
-// 	if(numberButtonActived() && operationButtonActived())
-// 	{
-// 		let equalButtonAactive = equalButton.disabled
-// 		return equalButtonActive += true
-// 	}
-// }
-// if(enabledEachClick())
-// {	
-// 	equalButton.addEventListener("click", () =>
-// 	{	 
-// 		displayIdOfNumber.style.display = "none"
-// 	},{once:true})
-// }
+function enabledEachequalButtonClicked()
+{	
+	switch(equalButtonClicked())	
+	{
+		case true : 
+					window.equalButtonActiveCondition.addEventListener("click", () =>
+					{	 
+						displayIdOfNumber.style.display = "none"
+					},{once:true})
+		break
+	}
+}
+enabledEachequalButtonClicked()
 // Baris akhir function
 
 let runCalculations = new Promise((IdNumberClicked) =>
