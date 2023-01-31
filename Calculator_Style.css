@@ -32,7 +32,7 @@
 @supports (display: var(--Flexibel-Items) )
 {	
 	/*Bagian lebar maksimal*/
-	@media screen and (max-width: 600px)
+	@media screen and (max-width: 600px) and (min-width: 300px)
 	{	
 		body
 		{	
@@ -44,8 +44,8 @@
 			background-image: var(--Media-Body-Color);
 			background-repeat: no-repeat;
 			overflow: hidden;
-			height: 100vmin;
-			width: 100vmin;
+			height: 100vmax;
+			width: 100vmax;
 		}
 	}	
 }
@@ -283,7 +283,7 @@ main.Zero_Number_Container
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	justify-content: safe flex-start;
+	justify-content: flex-start;
 	gap: 6vmin;
 	align-items: space-between;
 	transform: translate(5vmin, 31vmin);
