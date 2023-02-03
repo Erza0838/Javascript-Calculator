@@ -6,6 +6,8 @@ let operationId = document.querySelectorAll("#Operation_Button_Id2")
 
 let equalButton = document.getElementById("Equal_Button_Id")
 
+let numberAndOperatorValue = [operationId, operationId]
+
 // Variable untuk menampilkan angka ke monitor
 let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
 
@@ -13,7 +15,7 @@ let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
 let showFinalResult = document.getElementById("Display_Result")
 
 // Function untuk menampilkan angka
-function numberButtonActived()
+function NumberButtonActived()
 {
 	for(let idButton of numberIdButton) 
 	{
@@ -31,7 +33,7 @@ function numberButtonActived()
 // Baris akhir function 
 
 // Baris pengkondisian untuk menampilkan operasi matematika
-function operationButtonActiced()
+function OperationButtonActiced()
 {
 	for(let arithmeticId of operationId) 
 	{
@@ -46,46 +48,81 @@ function operationButtonActiced()
 			}, false)
 	}
 }
-operationButtonActiced()
 // Baris akhir function
 
 // Listener untuk menampilkan simbol sama dengan 
-function equalButtonClicked()
+function RunOperatorsButtons()
 {	
-	if(numberButtonActived())
+	let newValues = [NumberButtonActived(), OperationButtonActiced()]
+	for(let allButtonValues of newValues)
 	{	
-		let enabledEqualButton = equalButton.disabled = true
-		equalButton.addEventListener("click", () =>
-		{	 
-			displayIdOfNumber.style.display = "none"
-		},{once:true})
-		return enabledEqualButton
-		// if(displayIdOfNumberAndOperator.nodeValue != "" && displayIdOfNumberAndOperator.nodeValue > 1)
+		if(allButtonValues) 
+		{	
+			if(allButtonValues !== "" && allButtonValues != undefined) 		
+			{	
+				if(displayIdOfNumberAndOperator.style.display = "flex")
+				{	
+					if(displayIdOfNumberAndOperator.textContent.length == 1 && displayIdOfNumberAndOperator.textContent.length > 1)
+					{	
+						if(enabledEqualButton != false)
+						{
+							return equalButton.disabled = true
+						}
+					}
+				}
+			}
+		}
+		// if(!allButtonValues) 
 		// {	
-		// 	if(enabledEqualButton || enabledEqualButton != false)
-		// 	{
-		// 		equalButton.addEventListener("click", () =>
-		// 		{	 
-		// 			return displayIdOfNumber.style.display = "none"
-		// 		},{once:true})
-		// 		return enabledEqualButton
+		// 	if(allButtonValues === "" && allButtonValues == undefined) 		
+		// 	{	
+		// 		if(displayIdOfNumberAndOperator.style.display !== "flex")
+		// 		{	
+		// 			if(displayIdOfNumberAndOperator.textContent.length != 1 && displayIdOfNumberAndOperator.textContent.length < 1)
+		// 			{	
+		// 				if(enabledEqualButton == false)
+		// 				{
+		// 					return equalButton.disabled = false
+		// 				}
+		// 			}
+		// 		}
 		// 	}
 		// }
+		else 
+		{
+			return equalButton.disabled = false
+		}
 	}
+	return newValues
 }
-equalButtonClicked()
 // Baris akhir function 
 
-let runCalculations = new Promise((IdNumberClicked) =>
+// Function untuk menjalankan tombol sama dengan
+function EqualButtonsConditions()
 {	
-	IdNumberClicked()
-})
-runCalculations.then((equalButtonClicked) =>
-{
-	switch(window.arithmeticId)
+	let allOperatorButtonsCondition = RunOperatorsButtons()
+	for(let emptyValues = 0; emptyValues > numberAndOperatorValue.length; emptyValues++)
 	{	
-		case "+" : let sumValue = showFinalResult.innerText = Number(numberIdButton.value) + Number(numberIdButton.value)
-		break
+		allOperatorButtonsCondition + equalButton.addEventListener("click"[emptyValues], () =>
+		{	 
+			console.log("Button Aktif")
+			displayIdOfNumberAndOperator.style.display = "none"
+		},{once:true})
 	}
-})
-// Baris akhir code
+}
+EqualButtonsConditions()
+// Baris akhir function
+
+
+// let runCalculations = new Promise((IdNumberClicked) =>
+// {	
+// 	IdNumberClicked()
+// })
+// runCalculations.then((equalButtonClicked) =>
+// {
+// 	switch(window.arithmeticId)
+// 	{	
+// 		case "+" : let sumValue = showFinalResult.innerText = Number(numberIdButton.value) + Number(numberIdButton.value)
+// 		break
+// 	}
+// })

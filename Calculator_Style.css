@@ -16,23 +16,20 @@
 	--Flexibel-Items: flex;
 }
 /*Akhir baris CSS Variable*/
-
 	body
 	{
 		background-image: var(--Body-Color);
-		padding: 0;
-		margin: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		overflow-x: hidden;
-		transform: translate(0, 15vmin);
+		transform: translate(0, 13vmin);
 		box-sizing: var(--Box-Size);
 	}	
-@supports (display: var(--Flexibel-Items) )
+@supports(display: var(--Flexibel-Items))
 {	
 	/*Bagian lebar maksimal*/
-	@media screen and (max-width: 600px)
+	@media screen and(max-width: 600px)
 	{	
 		body
 		{	
@@ -127,7 +124,7 @@ article.Calculator-Container > .Output_Number
 		min-height: 10vmin;
 		justify-content: flex-start;
 		align-content: space-between;
-		padding: 1vmin 0 0 1vmin;
+		/* padding: 1vmin 0 0 1vmin; */
 	}
 
 main.Button_Container > button.Symbol_Button
@@ -135,10 +132,10 @@ main.Button_Container > button.Symbol_Button
 	border-radius: 100%;
 	border: .2rem solid var(--Border-Color);
 	background-color: var(--Calculator-Background-Color);
-	padding: .9rem .9rem .9rem .9rem;
 	display: inline-block;
-	width: 3.5rem;
-	height: 3.5rem;
+	transform: translate(0, 1vh);
+	width: 4vw;
+	height: 8vh;
 	box-sizing: var(--Box-Size);
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: clamp(2.8ex, 1.3rem, 1vw);
@@ -165,7 +162,7 @@ button + main.Horizontal_Right
 	flex-direction: column;
 	justify-content: flex-end;
 	gap: 3.9vmin;
-	transform: translate(-10.5vmin, 11vmin);
+	transform: translate(-9vmin, 13vmin);
 	position: relative;
 	z-index: 1;
 }
@@ -297,7 +294,6 @@ main.Button_Number_Container_3
 
 main.Zero_Number_Container
 {	
-	position: relative;
 	display: flex;
 	flex-direction: row;
 	justify-content: safe flex-start;
@@ -308,7 +304,6 @@ main.Zero_Number_Container
 
 	main.Zero_Number_Container > button.Zero_Number_Button:nth-child(1)
 	{
-		display: inline-block;
 		border: none;
 		padding: .9rem .9rem .9rem .9rem;
 		width: 10rem;
@@ -325,7 +320,6 @@ main.Zero_Number_Container
 
 main.Zero_Number_Container > button.Zero_Number_Button
 {
-	display: inline-block;
 	border: none;
 	padding: .9rem .9rem .9rem .9rem;
 	width: 3.7rem;
