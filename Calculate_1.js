@@ -6,7 +6,9 @@ let operationId = document.querySelectorAll("#Operation_Button_Id2")
 
 let equalButton = document.getElementById("Equal_Button_Id")
 
-let numberAndOperatorValue = [operationId, operationId]
+const clearDisplayValues = document.getElementById("All_Clear_Button_Id") 
+
+let numberAndOperatorValue = [numberIdButton.length, operationId.length]
 
 // Variable untuk menampilkan angka ke monitor
 let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
@@ -33,7 +35,7 @@ function NumberButtonActived()
 // Baris akhir function 
 
 // Baris pengkondisian untuk menampilkan operasi matematika
-function OperationButtonActiced()
+function OperationButtonActived()
 {
 	for(let arithmeticId of operationId) 
 	{
@@ -53,47 +55,38 @@ function OperationButtonActiced()
 // Listener untuk menampilkan simbol sama dengan 
 function RunOperatorsButtons()
 {	
-	let newValues = [NumberButtonActived(), OperationButtonActiced()]
+	let newValues = [NumberButtonActived(), OperationButtonActived()]
 	for(let allButtonValues of newValues)
 	{	
 		if(allButtonValues) 
 		{	
-			if(allButtonValues !== "" && allButtonValues != undefined) 		
+			if(displayIdOfNumberAndOperator.innerText !== "" || displayIdOfNumberAndOperator.innerText != undefined || displayIdOfNumberAndOperator.innerText != null) 		
 			{	
 				if(displayIdOfNumberAndOperator.style.display = "flex")
 				{	
-					if(displayIdOfNumberAndOperator.textContent.length == 1 && displayIdOfNumberAndOperator.textContent.length > 1)
+					if(displayIdOfNumberAndOperator.innerText.length == 1 || displayIdOfNumberAndOperator.innerText.length > 1)
 					{	
-						if(enabledEqualButton != false)
-						{
-							return equalButton.disabled = true
-						}
+						return equalButton.disabled = true
 					}
 				}
 			}
+			// return equalButton.disabled = false
 		}
-		// if(!allButtonValues) 
-		// {	
-		// 	if(allButtonValues === "" && allButtonValues == undefined) 		
-		// 	{	
-		// 		if(displayIdOfNumberAndOperator.style.display !== "flex")
-		// 		{	
-		// 			if(displayIdOfNumberAndOperator.textContent.length != 1 && displayIdOfNumberAndOperator.textContent.length < 1)
-		// 			{	
-		// 				if(enabledEqualButton == false)
-		// 				{
-		// 					return equalButton.disabled = false
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }
-		else 
-		{
-			return equalButton.disabled = false
+		else if(!allButtonValues) 
+		{	
+			if(displayIdOfNumberAndOperator.innerText === "" || displayIdOfNumberAndOperator.innerText == undefined || displayIdOfNumberAndOperator.innerText == null) 		
+			{	
+				if(displayIdOfNumberAndOperator.style.display != "flex")
+				{	
+					if(displayIdOfNumberAndOperator.innerText.length < 1)
+					{	
+						return equalButton.disabled = false
+					}
+				}
+			}
+			// return equalButton.disabled = true
 		}
 	}
-	return newValues
 }
 // Baris akhir function 
 
@@ -101,18 +94,21 @@ function RunOperatorsButtons()
 function EqualButtonsConditions()
 {	
 	let allOperatorButtonsCondition = RunOperatorsButtons()
-	for(let emptyValues = 0; emptyValues > numberAndOperatorValue.length; emptyValues++)
-	{	
-		allOperatorButtonsCondition + equalButton.addEventListener("click"[emptyValues], () =>
-		{	 
-			console.log("Button Aktif")
-			displayIdOfNumberAndOperator.style.display = "none"
-		},{once:true})
+	for(let shownumberAndOperatorValue of numberAndOperatorValue)
+	{
+		for(let zeroValue = 0; shownumberAndOperatorValue > zeroValue; zeroValue++)
+		{
+			let equalButtonIndeks = equalButton[zeroValue]
+			allOperatorButtonsCondition + equalButtonIndeks.addEventListener("click", () =>
+			{	 
+				console.log("Button Aktif")
+				displayIdOfNumberAndOperator.style.display = "none"
+			},{once:true})
+		}
 	}
 }
 EqualButtonsConditions()
 // Baris akhir function
-
 
 // let runCalculations = new Promise((IdNumberClicked) =>
 // {	

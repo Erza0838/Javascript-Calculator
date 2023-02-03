@@ -132,7 +132,6 @@ main.Button_Container > button.Symbol_Button
 	border-radius: 100%;
 	border: .2rem solid var(--Border-Color);
 	background-color: var(--Calculator-Background-Color);
-	display: inline-block;
 	transform: translate(0, 1vh);
 	width: 4vw;
 	height: 8vh;
