@@ -29,7 +29,7 @@
 @supports(display: var(--Flexibel-Items))
 {	
 	/*Bagian lebar maksimal*/
-	@media screen and(max-width: 600px)
+	@media screen and(width > 500px)
 	{	
 		body
 		{	
@@ -41,8 +41,8 @@
 			background-image: var(--Media-Body-Color);
 			background-repeat: no-repeat;
 			overflow: hidden;
-			height: 100vmin;
-			width: 100vmin;
+			height: 120vh;
+			width: 120vw;
 		}
 	}	
 	/*Baris akhir lebar maksimal*/
@@ -124,7 +124,6 @@ article.Calculator-Container > .Output_Number
 		min-height: 10vmin;
 		justify-content: flex-start;
 		align-content: space-between;
-		/* padding: 1vmin 0 0 1vmin; */
 	}
 
 main.Button_Container > button.Symbol_Button
@@ -133,11 +132,11 @@ main.Button_Container > button.Symbol_Button
 	border: .2rem solid var(--Border-Color);
 	background-color: var(--Calculator-Background-Color);
 	transform: translate(0, 1vh);
-	width: 4vw;
-	height: 8vh;
+	width: 4.5vw;
+	height: 7vh;
 	box-sizing: var(--Box-Size);
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: clamp(2.8ex, 1.3rem, 1vw);
+	font-size: clamp(1.5vw, 1.3vw, 1vw);
 	line-height: center;
 	font-weight: bold;
 	color: var(--Text-Color);
@@ -161,7 +160,7 @@ button + main.Horizontal_Right
 	flex-direction: column;
 	justify-content: flex-end;
 	gap: 3.9vmin;
-	transform: translate(-9vmin, 13vmin);
+	transform: translate(-11vmin, 13vmin);
 	position: relative;
 	z-index: 1;
 }

@@ -58,21 +58,8 @@ function RunOperatorsButtons()
 	let newValues = [NumberButtonActived(), OperationButtonActived()]
 	for(let allButtonValues of newValues)
 	{	
-		if(allButtonValues) 
-		{	
-			if(displayIdOfNumberAndOperator.innerText !== "" || displayIdOfNumberAndOperator.innerText != undefined || displayIdOfNumberAndOperator.innerText != null) 		
-			{	
-				if(displayIdOfNumberAndOperator.style.display = "flex")
-				{	
-					if(displayIdOfNumberAndOperator.innerText.length == 1 || displayIdOfNumberAndOperator.innerText.length > 1)
-					{	
-						return equalButton.disabled = true
-					}
-				}
-			}
-			// return equalButton.disabled = false
-		}
-		else if(!allButtonValues) 
+		// allButtonValues
+		if(!allButtonValues) 
 		{	
 			if(displayIdOfNumberAndOperator.innerText === "" || displayIdOfNumberAndOperator.innerText == undefined || displayIdOfNumberAndOperator.innerText == null) 		
 			{	
@@ -80,45 +67,79 @@ function RunOperatorsButtons()
 				{	
 					if(displayIdOfNumberAndOperator.innerText.length < 1)
 					{	
-						return equalButton.disabled = false
+						equalButton.disabled = false
 					}
 				}
 			}
-			// return equalButton.disabled = true
+		}
+		else if(allButtonValues) 
+		{	
+			if(displayIdOfNumberAndOperator.innerText !== "" || displayIdOfNumberAndOperator.innerText != undefined || displayIdOfNumberAndOperator.innerText != null) 		
+			{	
+				if(displayIdOfNumberAndOperator.style.display = "flex")
+				{	
+					if(displayIdOfNumberAndOperator.innerText.length == 1 || displayIdOfNumberAndOperator.innerText.length > 1)
+					{	
+						equalButton.disabled = true
+					}
+				}
+			}
 		}
 	}
 }
+
 // Baris akhir function 
 
 // Function untuk menjalankan tombol sama dengan
 function EqualButtonsConditions()
 {	
 	let allOperatorButtonsCondition = RunOperatorsButtons()
-	for(let shownumberAndOperatorValue of numberAndOperatorValue)
-	{
-		for(let zeroValue = 0; shownumberAndOperatorValue > zeroValue; zeroValue++)
-		{
-			let equalButtonIndeks = equalButton[zeroValue]
-			allOperatorButtonsCondition + equalButtonIndeks.addEventListener("click", () =>
-			{	 
-				console.log("Button Aktif")
-				displayIdOfNumberAndOperator.style.display = "none"
-			},{once:true})
-		}
-	}
+	allOperatorButtonsCondition + equalButton.addEventListener("click", () =>
+	{	 
+		displayIdOfNumberAndOperator.style.display = "none"	
+	},false)
 }
 EqualButtonsConditions()
 // Baris akhir function
 
+// Function untuk memunculkan semua angka pada button
+function ForOfLoopNumberButtons()
+{
+	for(let allNumbers of numberIdButton) 
+	{
+		allNumbers
+	}
+}
+// Baris akhir function
+
+// Function untuk memunculkan semua operator pada button
+function ForOfLoopNumberButtons()
+{
+	for(let allOperators of numberIdButton) 
+	{
+		allOperators
+	}
+}
+// Baris akhir function
+
+// Bagian Promise
 // let runCalculations = new Promise((IdNumberClicked) =>
 // {	
 // 	IdNumberClicked()
 // })
-// runCalculations.then((equalButtonClicked) =>
+
+// runCalculations.then((EqualButtonsConditions) =>
 // {
-// 	switch(window.arithmeticId)
+// 	switch(RunOperatorsButtons)
 // 	{	
-// 		case "+" : let sumValue = showFinalResult.innerText = Number(numberIdButton.value) + Number(numberIdButton.value)
+// 		case "+" : console.log(Number(numberIdButton.value) + Number(numberIdButton.value))
 // 		break
 // 	}
+
+// 	switch(RunOperatorsButtons) 
+// 	{
+// 		case false : return 
+// 			break
+// 	}
 // })
+// Baris akhr promise
