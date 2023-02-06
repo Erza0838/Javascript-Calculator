@@ -58,7 +58,6 @@ function RunOperatorsButtons()
 	let newValues = [NumberButtonActived(), OperationButtonActived()]
 	for(let allButtonValues of newValues)
 	{	
-		// allButtonValues
 		if(!allButtonValues) 
 		{	
 			if(displayIdOfNumberAndOperator.innerText === "" || displayIdOfNumberAndOperator.innerText == undefined || displayIdOfNumberAndOperator.innerText == null) 		
@@ -87,19 +86,50 @@ function RunOperatorsButtons()
 		}
 	}
 }
-
 // Baris akhir function 
 
 // Function untuk menjalankan tombol sama dengan
 function EqualButtonsConditions()
 {	
 	let allOperatorButtonsCondition = RunOperatorsButtons()
+	let displayIdOfNumberAndOperatorInvisible =
 	allOperatorButtonsCondition + equalButton.addEventListener("click", () =>
 	{	 
-		displayIdOfNumberAndOperator.style.display = "none"	
+		let removedDisplayFlex = displayIdOfNumberAndOperator.style.display = "none"
+		for(let sliceRemovedDisplayFlex of removedDisplayFlex) 
+		{	
+			for(let compareValue = 0; sliceRemovedDisplayFlex == compareValue; compareValue++)
+			{	
+				if(compareValue < sliceRemovedDisplayFlex.length) 
+				{
+					displayIdOfNumberAndOperator.innerText.slice([compareValue])
+				}
+			}
+		}
 	},false)
 }
-EqualButtonsConditions()
+// EqualButtonsConditions()
+// Baris akhir function
+
+// Function untuk mengemabilkan display
+function ShowDisplayIdOfNumberAndOperator()
+{	
+	while(EqualButtonsConditions())
+	{	
+		if(window.displayIdOfNumberAndOperatorInvisible)
+		{	
+			switch(displayIdOfNumberAndOperator)
+			{
+				case "" : if(RunOperatorsButtons()) 
+								{	
+									displayIdOfNumberAndOperator.style.display = "flex"
+								}
+				break
+			}
+		}
+	}
+}
+ShowDisplayIdOfNumberAndOperator()
 // Baris akhir function
 
 // Function untuk memunculkan semua angka pada button
@@ -113,7 +143,7 @@ function ForOfLoopNumberButtons()
 // Baris akhir function
 
 // Function untuk memunculkan semua operator pada button
-function ForOfLoopNumberButtons()
+function ForOfLoopOperatorButtons()
 {
 	for(let allOperators of numberIdButton) 
 	{
@@ -123,21 +153,20 @@ function ForOfLoopNumberButtons()
 // Baris akhir function
 
 // Bagian Promise
-// let runCalculations = new Promise((IdNumberClicked) =>
+// let runCalculations = new Promise((IdNumberClicked) =>	
 // {	
-// 	IdNumberClicked()
+// 	if(ShowDisplayIdOfNumberAndOperator() == ForOfLoopNumberButtons())
+// 	{
+		
+// 	}
 // })
 
-// runCalculations.then((EqualButtonsConditions) =>
-// {
-// 	switch(RunOperatorsButtons)
+// runCalculations.then(() =>
+// {	
+// 	switch(RunOperatorsButtons())
 // 	{	
-// 		case "+" : console.log(Number(numberIdButton.value) + Number(numberIdButton.value))
-// 		break
-// 	}
-
-// 	switch(RunOperatorsButtons) 
-// 	{
+// 		case "+" : showFinalResult.append(innerText = RunOperatorsButtons(window.newValues[0]) + RunOperatorsButtons(window.newValues[0]))
+// 			break
 // 		case false : return 
 // 			break
 // 	}

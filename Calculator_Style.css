@@ -29,7 +29,7 @@
 @supports(display: var(--Flexibel-Items))
 {	
 	/*Bagian lebar maksimal*/
-	@media screen and(width > 500px)
+	@media screen and(max-width: 500px)
 	{	
 		body
 		{	
@@ -41,8 +41,8 @@
 			background-image: var(--Media-Body-Color);
 			background-repeat: no-repeat;
 			overflow: hidden;
-			height: 120vh;
-			width: 120vw;
+			height: 120vmax;
+			width: 120vmax;
 		}
 	}	
 	/*Baris akhir lebar maksimal*/
@@ -75,7 +75,7 @@ article.Calculator-Container
 	padding: 1.2rem 1.2rem 1.2rem 1.2rem;
 	border-radius: clamp(.4rem, 1.2rem, 1.4rem);
 	width: 33vmax;
-	height: min(78vmin, 90vh);
+	height: 78vmin;
 	max-width: 150vmin;
 	box-sizing: var(--Box-Size);
 }
