@@ -14,8 +14,8 @@ let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
 // Variable untuk menampilkan hasil perhitungan 
 let showFinalResult = document.getElementById("Display_Result")
 
-// Variable untuk menyimpan function tombol angka dan operator
-let newValues
+// Variable untuk menyimpan perhitungan angka
+let resultCalculationNumber
 
 let runCalculations
 // Function untuk menampilkan angka
@@ -58,7 +58,7 @@ function OperationButtonActived()
 // Function untuk mengaktifkan tombol sama dengan
 function RunOperatorsButtons()
 {	
-	newValues = [NumberButtonActived(), OperationButtonActived()]
+	let newValues = [NumberButtonActived(), OperationButtonActived()]
 	for(let allButtonValues of newValues)
 	{	
 		if(!allButtonValues) 
@@ -103,6 +103,13 @@ function EqualButtonsConditions()
 		}
 	},false)
 }
+
+// Function untuk menampilkan hasil perhitungan ke layar
+function CalculationResultShow(CalculationResult)
+{
+	showFinalResult.append(innerText = CalculationResult)
+	return CalculationResult
+}
 // Baris akhir function
 
 // Function berisi Promise untuk menampilkan hasil perhitungan ke layar
@@ -111,63 +118,97 @@ function NumberAndOperatorButtonsCondition()
 	runCalculations = new Promise((IdNumberClicked) =>	
 	{	
 		if(EqualButtonsConditions())
-		{
-			while(IdNumberClicked(newValues) > 1)
-			{
-				return newValues
-			}
-		}
-	}).then((newInitialitaionValues) =>
 		{	
-			switch(displayIdOfNumberAndOperator.childNodes)
-			{	
-				case "+" : 
-							// while(newInitialitaionValues)
-							// {
-							// 	showFinalResult.append(innerText = newInitialitaionValues.firstChild[0] + newInitialitaionValues.firstChild[0])
-							// 	break
-							// }	
-							while(displayIdOfNumberAndOperator.firstChild)
-							{
-								showFinalResult.append(innerText = displayIdOfNumberAndOperator.firstChild[0] + displayIdOfNumberAndOperator.firstChild[0])
-								break
-							}	
-					break
-			}
-		})
-}
-let NumberAndOperatorButtonsConditionResult = NumberAndOperatorButtonsCondition()
-// Baris akhir function 
-
-// Function untuk melakukan perhitungan dan menampilkan hasil ke layar
-function CalculateValue()
-{
-	NumberAndOperatorButtonsConditionResult + runCalculations.then((newInitialitaionValues) =>
-	{	
-		switch(displayIdOfNumberAndOperator.childNodes)
-		{	
-			case "+" : 
-						// while(newInitialitaionValues)
-						// {
-						// 	showFinalResult.append(innerText = newInitialitaionValues.firstChild[0] + newInitialitaionValues.firstChild[0])
-						// 	break
-						// }	
-						while(displayIdOfNumberAndOperator.firstChild)
-						{
-							showFinalResult.append(innerText = displayIdOfNumberAndOperator.firstChild[0] + displayIdOfNumberAndOperator.firstChild[0])
-							break
-						}	
-				break
+			console.log("Test")
+			IdNumberClicked(newValues)
 		}
 	})
-	// .catch((newNullValues) => 
-	// {
-	// 	switch(newNullValues)
-	// 	{	
-	// 		case "+" : showFinalResult.append(innerText = newValues.firstChild[0] + newValues.firstChild[0])
-	// 			break
-	// 	}
-	// })
+	runCalculations.then((newInitialitationValues) =>
+	{	
+		switch(newInitialitationValues)
+		{	
+			case "+" : 
+			// CalcualtionResultShow(resultCalculationNumber)
+					for(let addValue = 0; addValue < numberIdButton.length; addValue++)
+					{	
+						if(displayIdOfNumberAndOperator.hasChildNodes())
+						{	
+							if(displayIdOfNumberAndOperator.innerText !== "")
+							{	
+								if(displayIdOfNumberAndOperator.innerText[addValue])
+								{
+									// resultCalculationNumber = [numberIdButton[addValue]] + [numberIdButton[addValue]]
+									resultCalculationNumber = newInitialitationValues[addValue] + newInitialitationValues[addValue]
+									CalculationResultShow(resultCalculationNumber)
+								}								
+							}
+						}
+						else 
+						{
+							return
+						}
+					}
+			break
+			case "-" : 
+					for(let reduceValue = 0; reduceValue < numberIdButton.length; reduceValue++)
+					{	
+						if(displayIdOfNumberAndOperator.hasChildNodes())
+						{	
+							if(displayIdOfNumberAndOperator.innerText !== "")
+							{	
+								if(displayIdOfNumberAndOperator.innerText[reduceValue])
+								{
+									showFinalResult.append(innerText = numberIdButton[reduceValue] - numberIdButton[reduceValue])
+								}								
+							}
+						}
+						else 
+						{
+							return
+						}
+					}
+			break
+			case "*" : 
+					for(let mulitipliedValue = 0; mulitipliedValue < numberIdButton.length; mulitipliedValue++)
+					{	
+						if(displayIdOfNumberAndOperator.hasChildNodes())
+						{	
+							if(displayIdOfNumberAndOperator.innerText !== "")
+							{	
+								if(displayIdOfNumberAndOperator.innerText[mulitipliedValue])
+								{
+									showFinalResult.append(innerText = numberIdButton[mulitipliedValue] * numberIdButton[mulitipliedValue])
+								}								
+							}
+						}
+						else 
+						{
+							return
+						}
+					}
+			break
+			case "/" : 
+					for(let dividedValue = 0; dividedValue < numberIdButton.length; dividedValue++)
+					{	
+						if(displayIdOfNumberAndOperator.hasChildNodes())
+						{	
+							if(displayIdOfNumberAndOperator.innerText !== "")
+							{	
+								if(displayIdOfNumberAndOperator.innerText[dividedValue])
+								{
+									showFinalResult.append(innerText = numberIdButton[dividedValue] / numberIdButton[dividedValue])
+								}								
+							}
+						}
+						else 
+						{
+							return
+						}
+					}
+		}
+	})
+	return runCalculations
 }
-// CalculateValue()
+NumberAndOperatorButtonsCondition()
+// Baris akhir function 
 // Baris akhir promise
