@@ -26,44 +26,6 @@
 		transform: translate(0, 13vmin);
 		box-sizing: var(--Box-Size);
 	}	
-@supports(display: var(--Flexibel-Items))
-{	
-	/*Bagian lebar maksimal*/
-	@media screen and(max-width: 500px)
-	{	
-		body
-		{	
-			--Media-Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );
-			display: var(--Flexibel-Items);
-			justify-content: center;
-			align-items: center;
-			align-content: center;
-			background-image: var(--Media-Body-Color);
-			background-repeat: no-repeat;
-			overflow: hidden;
-			height: 120vmax;
-			width: 120vmax;
-		}
-	}	
-	/*Baris akhir lebar maksimal*/
-	/* @media screen and (max-height: 1100px)
-	{
-		body
-		{	
-			--Media-Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );
-			display: var(--Flexibel-Items);
-			justify-content: center;
-			align-items: center;
-			align-content: center;
-			background-image: var(--Media-Body-Color);
-			background-repeat: no-repeat;
-			overflow-y: hidden;
-			height: 179vmin;
-			width: 100vmin;
-		}
-	}	 */
-}
-
 /*Container calculator*/
 article.Calculator-Container
 {	
@@ -267,7 +229,7 @@ main.Button_Number_Container_3
 	position: relative;
 	display: flex;
 	flex-direction: row;
-	justify-content: safe flex-start;
+	justify-content: flex-start;
 	gap: 6vmin;
 	align-items: space-between;
 	transform: translate(5vmin, 28vmin);
@@ -332,3 +294,41 @@ main.Zero_Number_Container > button.Zero_Number_Button
 	background-color: var(--Button-Number-BG);
 }
 	/*Baris akhir Container*/
+
+@supports(display: var(--Flexibel-Items))
+{	
+	/*Bagian lebar maksimal*/
+	@media screen and(max-width: 500px)
+	{	
+		body
+		{	
+			--Media-Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );
+			display: var(--Flexibel-Items);
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			background-image: var(--Media-Body-Color);
+			background-repeat: no-repeat;
+			overflow: hidden;
+			height: 120vmax;
+			width: 120vmax;
+		}
+	}	
+	/*Baris akhir lebar maksimal*/
+	/* @media screen and (max-height: 1100px)
+	{
+		body
+		{	
+			--Media-Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );
+			display: var(--Flexibel-Items);
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			background-image: var(--Media-Body-Color);
+			background-repeat: no-repeat;
+			overflow-y: hidden;
+			height: 179vmin;
+			width: 100vmin;
+		}
+	}	 */
+}

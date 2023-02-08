@@ -8,14 +8,16 @@ let equalButton = document.getElementById("Equal_Button_Id")
 
 const clearDisplayValues = document.getElementById("All_Clear_Button_Id") 
 
-let numberAndOperatorValue = [numberIdButton.length, operationId.length]
-
 // Variable untuk menampilkan angka ke monitor
 let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
 
 // Variable untuk menampilkan hasil perhitungan 
 let showFinalResult = document.getElementById("Display_Result")
 
+// Variable untuk menyimpan function tombol angka dan operator
+let newValues
+
+let runCalculations
 // Function untuk menampilkan angka
 function NumberButtonActived()
 {
@@ -52,10 +54,11 @@ function OperationButtonActived()
 }
 // Baris akhir function
 
-// Listener untuk menampilkan simbol sama dengan 
+// Function untuk mengaktifkan tombol angka dan operator
+// Function untuk mengaktifkan tombol sama dengan
 function RunOperatorsButtons()
 {	
-	let newValues = [NumberButtonActived(), OperationButtonActived()]
+	newValues = [NumberButtonActived(), OperationButtonActived()]
 	for(let allButtonValues of newValues)
 	{	
 		if(!allButtonValues) 
@@ -92,83 +95,79 @@ function RunOperatorsButtons()
 function EqualButtonsConditions()
 {	
 	let allOperatorButtonsCondition = RunOperatorsButtons()
-	let displayIdOfNumberAndOperatorInvisible =
 	allOperatorButtonsCondition + equalButton.addEventListener("click", () =>
 	{	 
-		let removedDisplayFlex = displayIdOfNumberAndOperator.style.display = "none"
-		for(let sliceRemovedDisplayFlex of removedDisplayFlex) 
-		{	
-			for(let compareValue = 0; sliceRemovedDisplayFlex == compareValue; compareValue++)
-			{	
-				if(compareValue < sliceRemovedDisplayFlex.length) 
-				{
-					displayIdOfNumberAndOperator.innerText.slice([compareValue])
-				}
-			}
+		while(displayIdOfNumberAndOperator.firstChild)
+		{
+			displayIdOfNumberAndOperator.removeChild(displayIdOfNumberAndOperator.firstChild)
 		}
 	},false)
 }
-// EqualButtonsConditions()
 // Baris akhir function
 
-// Function untuk mengemabilkan display
-function ShowDisplayIdOfNumberAndOperator()
-{	
-	while(EqualButtonsConditions())
+// Function berisi Promise untuk menampilkan hasil perhitungan ke layar
+function NumberAndOperatorButtonsCondition()
+{
+	runCalculations = new Promise((IdNumberClicked) =>	
 	{	
-		if(window.displayIdOfNumberAndOperatorInvisible)
-		{	
-			switch(displayIdOfNumberAndOperator)
+		if(EqualButtonsConditions())
+		{
+			while(IdNumberClicked(newValues) > 1)
 			{
-				case "" : if(RunOperatorsButtons()) 
-								{	
-									displayIdOfNumberAndOperator.style.display = "flex"
-								}
-				break
+				return newValues
 			}
 		}
-	}
+	}).then((newInitialitaionValues) =>
+		{	
+			switch(displayIdOfNumberAndOperator.childNodes)
+			{	
+				case "+" : 
+							// while(newInitialitaionValues)
+							// {
+							// 	showFinalResult.append(innerText = newInitialitaionValues.firstChild[0] + newInitialitaionValues.firstChild[0])
+							// 	break
+							// }	
+							while(displayIdOfNumberAndOperator.firstChild)
+							{
+								showFinalResult.append(innerText = displayIdOfNumberAndOperator.firstChild[0] + displayIdOfNumberAndOperator.firstChild[0])
+								break
+							}	
+					break
+			}
+		})
 }
-ShowDisplayIdOfNumberAndOperator()
-// Baris akhir function
+let NumberAndOperatorButtonsConditionResult = NumberAndOperatorButtonsCondition()
+// Baris akhir function 
 
-// Function untuk memunculkan semua angka pada button
-function ForOfLoopNumberButtons()
+// Function untuk melakukan perhitungan dan menampilkan hasil ke layar
+function CalculateValue()
 {
-	for(let allNumbers of numberIdButton) 
-	{
-		allNumbers
-	}
+	NumberAndOperatorButtonsConditionResult + runCalculations.then((newInitialitaionValues) =>
+	{	
+		switch(displayIdOfNumberAndOperator.childNodes)
+		{	
+			case "+" : 
+						// while(newInitialitaionValues)
+						// {
+						// 	showFinalResult.append(innerText = newInitialitaionValues.firstChild[0] + newInitialitaionValues.firstChild[0])
+						// 	break
+						// }	
+						while(displayIdOfNumberAndOperator.firstChild)
+						{
+							showFinalResult.append(innerText = displayIdOfNumberAndOperator.firstChild[0] + displayIdOfNumberAndOperator.firstChild[0])
+							break
+						}	
+				break
+		}
+	})
+	// .catch((newNullValues) => 
+	// {
+	// 	switch(newNullValues)
+	// 	{	
+	// 		case "+" : showFinalResult.append(innerText = newValues.firstChild[0] + newValues.firstChild[0])
+	// 			break
+	// 	}
+	// })
 }
-// Baris akhir function
-
-// Function untuk memunculkan semua operator pada button
-function ForOfLoopOperatorButtons()
-{
-	for(let allOperators of numberIdButton) 
-	{
-		allOperators
-	}
-}
-// Baris akhir function
-
-// Bagian Promise
-// let runCalculations = new Promise((IdNumberClicked) =>	
-// {	
-// 	if(ShowDisplayIdOfNumberAndOperator() == ForOfLoopNumberButtons())
-// 	{
-		
-// 	}
-// })
-
-// runCalculations.then(() =>
-// {	
-// 	switch(RunOperatorsButtons())
-// 	{	
-// 		case "+" : showFinalResult.append(innerText = RunOperatorsButtons(window.newValues[0]) + RunOperatorsButtons(window.newValues[0]))
-// 			break
-// 		case false : return 
-// 			break
-// 	}
-// })
-// Baris akhr promise
+// CalculateValue()
+// Baris akhir promise
