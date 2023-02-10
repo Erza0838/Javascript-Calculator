@@ -17,6 +17,8 @@ let showFinalResult = document.getElementById("Display_Result")
 // Variable untuk menyimpan perhitungan angka
 let resultCalculationNumber
 
+let newValues
+
 let runCalculations
 // Function untuk menampilkan angka
 function NumberButtonActived()
@@ -58,7 +60,7 @@ function OperationButtonActived()
 // Function untuk mengaktifkan tombol sama dengan
 function RunOperatorsButtons()
 {	
-	let newValues = [NumberButtonActived(), OperationButtonActived()]
+	newValues = [NumberButtonActived(), OperationButtonActived()]
 	for(let allButtonValues of newValues)
 	{	
 		if(!allButtonValues) 
@@ -112,6 +114,24 @@ function CalculationResultShow(CalculationResult)
 }
 // Baris akhir function
 
+function IdNumberClicked(newInitialitationValues)
+{
+	if(newValues[1] == "+")
+	{	
+		for(let addValue = 0; numberIdButton.length > addValue; addValue++)
+		{	
+			if(displayIdOfNumberAndOperator.hasChildNodes())
+			{	
+				if(displayIdOfNumberAndOperator.innerText !== "")
+				{	
+					resultCalculationNumber = Number(numberIdButton.value[addValue]) + Number(numberIdButton.value[addValue])
+					CalculationResultShow(resultCalculationNumber)
+				}
+			}
+		}
+	}
+}
+
 // Function berisi Promise untuk menampilkan hasil perhitungan ke layar
 function NumberAndOperatorButtonsCondition()
 {
@@ -119,94 +139,124 @@ function NumberAndOperatorButtonsCondition()
 	{	
 		if(EqualButtonsConditions())
 		{	
-			console.log("Test")
-			IdNumberClicked(newValues)
+			IdNumberClicked(newValues[1])
 		}
 	})
-	runCalculations.then((newInitialitationValues) =>
-	{	
-		switch(newInitialitationValues)
-		{	
-			case "+" : 
-			// CalcualtionResultShow(resultCalculationNumber)
-					for(let addValue = 0; addValue < numberIdButton.length; addValue++)
-					{	
-						if(displayIdOfNumberAndOperator.hasChildNodes())
-						{	
-							if(displayIdOfNumberAndOperator.innerText !== "")
-							{	
-								if(displayIdOfNumberAndOperator.innerText[addValue])
-								{
-									// resultCalculationNumber = [numberIdButton[addValue]] + [numberIdButton[addValue]]
-									resultCalculationNumber = newInitialitationValues[addValue] + newInitialitationValues[addValue]
-									CalculationResultShow(resultCalculationNumber)
-								}								
-							}
-						}
-						else 
-						{
-							return
-						}
-					}
-			break
-			case "-" : 
-					for(let reduceValue = 0; reduceValue < numberIdButton.length; reduceValue++)
-					{	
-						if(displayIdOfNumberAndOperator.hasChildNodes())
-						{	
-							if(displayIdOfNumberAndOperator.innerText !== "")
-							{	
-								if(displayIdOfNumberAndOperator.innerText[reduceValue])
-								{
-									showFinalResult.append(innerText = numberIdButton[reduceValue] - numberIdButton[reduceValue])
-								}								
-							}
-						}
-						else 
-						{
-							return
-						}
-					}
-			break
-			case "*" : 
-					for(let mulitipliedValue = 0; mulitipliedValue < numberIdButton.length; mulitipliedValue++)
-					{	
-						if(displayIdOfNumberAndOperator.hasChildNodes())
-						{	
-							if(displayIdOfNumberAndOperator.innerText !== "")
-							{	
-								if(displayIdOfNumberAndOperator.innerText[mulitipliedValue])
-								{
-									showFinalResult.append(innerText = numberIdButton[mulitipliedValue] * numberIdButton[mulitipliedValue])
-								}								
-							}
-						}
-						else 
-						{
-							return
-						}
-					}
-			break
-			case "/" : 
-					for(let dividedValue = 0; dividedValue < numberIdButton.length; dividedValue++)
-					{	
-						if(displayIdOfNumberAndOperator.hasChildNodes())
-						{	
-							if(displayIdOfNumberAndOperator.innerText !== "")
-							{	
-								if(displayIdOfNumberAndOperator.innerText[dividedValue])
-								{
-									showFinalResult.append(innerText = numberIdButton[dividedValue] / numberIdButton[dividedValue])
-								}								
-							}
-						}
-						else 
-						{
-							return
-						}
-					}
-		}
-	})
+	// runCalculations.then((newValues) =>	
+	// {	
+	// 	if(newValues[1] == "+")
+	// 	{	
+	// 		for(let addValue = 0; numberIdButton.length > addValue; addValue++)
+	// 		{	
+	// 			if(displayIdOfNumberAndOperator.hasChildNodes())
+	// 			{	
+	// 				if(displayIdOfNumberAndOperator.innerText !== "")
+	// 				{	
+	// 					resultCalculationNumber = Number(numberIdButton[addValue]) + Number(numberIdButton[addValue])
+	// 					CalculationResultShow(resultCalculationNumber)
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// 	// if(newValues[1] == "+")
+	// 	// {	
+	// 	// 	while(newValues[0])
+	// 	// 	{
+	// 	// 		for(let addValue = 0; numberIdButton.length > addValue; addValue++)
+	// 	// 		{	
+	// 	// 			if(displayIdOfNumberAndOperator.innerText == "" || displayIdOfNumberAndOperator.innerText == null)
+	// 	// 			{	
+	// 	// 				resultCalculationNumber = Number(numberIdButton[addValue]) + Number(numberIdButton[addValue])
+	// 	// 				if(resultCalculationNumber != "" || resultCalculationNumber != null)
+	// 	// 				{
+	// 	// 					CalculationResultShow(resultCalculationNumber)
+	// 	// 				}
+	// 	// 			}
+	// 	// 		}
+	// 	// 		break
+	// 	// 	}
+	// 	// }
+	// 	// switch(newInitialitationValues)
+	// 	// {	
+	// 	// 	case "+" : 
+	// 	// 			for(let addValue = 0; addValue < numberIdButton.length; addValue++)
+	// 	// 			{	
+	// 	// 				if(displayIdOfNumberAndOperator.hasChildNodes())
+	// 	// 				{	
+	// 	// 					if(displayIdOfNumberAndOperator.innerText !== "")
+	// 	// 					{	
+	// 	// 						if(displayIdOfNumberAndOperator.innerText[addValue])
+	// 	// 						{
+	// 	// 							// resultCalculationNumber = [numberIdButton[addValue]] + [numberIdButton[addValue]]
+	// 	// 							resultCalculationNumber = newInitialitationValues[addValue] + newInitialitationValues[addValue]
+	// 	// 							CalculationResultShow(resultCalculationNumber)
+	// 	// 						}								
+	// 	// 					}
+	// 	// 				}
+	// 	// 				else 
+	// 	// 				{
+	// 	// 					return
+	// 	// 				}
+	// 	// 			}
+	// 	// 	break
+	// 	// 	case "-" : 
+	// 	// 			for(let reduceValue = 0; reduceValue < numberIdButton.length; reduceValue++)
+	// 	// 			{	
+	// 	// 				if(displayIdOfNumberAndOperator.hasChildNodes())
+	// 	// 				{	
+	// 	// 					if(displayIdOfNumberAndOperator.innerText !== "")
+	// 	// 					{	
+	// 	// 						if(displayIdOfNumberAndOperator.innerText[reduceValue])
+	// 	// 						{
+	// 	// 							showFinalResult.append(innerText = numberIdButton[reduceValue] - numberIdButton[reduceValue])
+	// 	// 						}								
+	// 	// 					}
+	// 	// 				}
+	// 	// 				else 
+	// 	// 				{
+	// 	// 					return
+	// 	// 				}
+	// 	// 			}
+	// 	// 	break
+	// 	// 	case "*" : 
+	// 	// 			for(let mulitipliedValue = 0; mulitipliedValue < numberIdButton.length; mulitipliedValue++)
+	// 	// 			{	
+	// 	// 				if(displayIdOfNumberAndOperator.hasChildNodes())
+	// 	// 				{	
+	// 	// 					if(displayIdOfNumberAndOperator.innerText !== "")
+	// 	// 					{	
+	// 	// 						if(displayIdOfNumberAndOperator.innerText[mulitipliedValue])
+	// 	// 						{
+	// 	// 							showFinalResult.append(innerText = numberIdButton[mulitipliedValue] * numberIdButton[mulitipliedValue])
+	// 	// 						}								
+	// 	// 					}
+	// 	// 				}
+	// 	// 				else 
+	// 	// 				{
+	// 	// 					return
+	// 	// 				}
+	// 	// 			}
+	// 	// 	break
+	// 	// 	case "/" : 
+	// 	// 			for(let dividedValue = 0; dividedValue < numberIdButton.length; dividedValue++)
+	// 	// 			{	
+	// 	// 				if(displayIdOfNumberAndOperator.hasChildNodes())
+	// 	// 				{	
+	// 	// 					if(displayIdOfNumberAndOperator.innerText !== "")
+	// 	// 					{	
+	// 	// 						if(displayIdOfNumberAndOperator.innerText[dividedValue])
+	// 	// 						{
+	// 	// 							showFinalResult.append(innerText = numberIdButton[dividedValue] / numberIdButton[dividedValue])
+	// 	// 						}								
+	// 	// 					}
+	// 	// 				}
+	// 	// 				else 
+	// 	// 				{
+	// 	// 					return
+	// 	// 				}
+	// 	// 			}
+	// 	// }
+	// })
 	return runCalculations
 }
 NumberAndOperatorButtonsCondition()
