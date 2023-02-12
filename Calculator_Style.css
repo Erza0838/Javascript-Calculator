@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
 
+*
+{
+	box-sizing: border-box;
+}
 /*CSS Variable*/
 :root
 {	
@@ -45,10 +49,7 @@ article.Calculator-Container
 article.Calculator-Container > .Output_Number
 {	
 	position: absolute;
-	display: flex;
-	justify-content: flex-end;
-	align-content: center;
-	flex-direction: row;
+	flex-direction: column;
 	padding-right: 1.8vmin;
 	letter-spacing: .5vw;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -57,23 +58,6 @@ article.Calculator-Container > .Output_Number
 	color: var(--Text-Color);
 	transform: translate(3vmin, 8vmin);
 	box-sizing: var(--Box-Size);
-}
-
-.Output_Number + .Output_Operation
-{
-	position: absolute;
-	display: flex;
-	justify-content: flex-end;
-	align-content: center;
-	flex-direction: row;
-	padding-right: 1.8vmin;
-	letter-spacing: .7vw;
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: bold;
-	font-size: clamp(2ex, 2.8vw, 1.56rem);
-	color: var(--Text-Color);
-	transform: translate(6vmin, 8vmin);
-	box-sizing: var(--Box-Size);	
 }
 	article.Calculator-Container > main.Button_Container
 	{
@@ -200,7 +184,7 @@ main.Horizontal_Right > button.Horizontal_Equal_Button:nth-child(3)
 		position: relative;
 		display: flex;
 		flex-direction: row;
-		justify-content: safe flex-start;
+		justify-content: flex-start;
 		gap: 6vmin;
 		align-items: space-between;
 		transform: translate(5vmin, 26vmin);
