@@ -9,7 +9,11 @@ let equalButton = document.getElementById("Equal_Button_Id")
 const clearDisplayValues = document.getElementById("All_Clear_Button_Id") 
 
 // Variable untuk menampilkan angka ke monitor
-let displayIdOfNumberAndOperator = document.getElementById("Display_Output")
+let displayIdOfNumberAndOperator = document.getElementById("Display_Output_Calculate")
+
+let displayNumberValue = document.getElementById("Display_Number")
+
+let displayOperatorValue = document.getElementById("Display_Operator")
 
 // Variable untuk menampilkan hasil perhitungan 
 let showFinalResult = document.getElementById("Display_Result")
@@ -28,21 +32,26 @@ let numberButtonsCondition
 let numberButtonValue
 
 let operatorSymbolValue
+
+// Variable untuk for of loop
+// let arithmeticId
+// let idButton
+// Baris akhir variable
+
 // Function untuk menampilkan angka
 function NumberButtonActived()
 {
 	for(let idButton of numberIdButton) 
 	{
-		let ClickIdNumber = idButton.addEventListener("click",
-			function Number() 
+		let ClickIdNumber = idButton.addEventListener("click",() =>			
+		{
+			let displayingNumber = displayIdOfNumberAndOperator.append(innerText = idButton.value)
+			console.log(idButton.value)
+			for(let arithmeticId of operationId) 
 			{
-				let displayingNumber = displayIdOfNumberAndOperator.append(innerText = idButton.value)
-				console.log(idButton.value)
-				for(let arithmeticId of operationId) 
-				{
-					arithmeticId.disabled = false
-				}
-			}, false)
+				arithmeticId.disabled = false
+			}
+		}, false)
 	}
 }
 // Baris akhir function 
@@ -52,16 +61,15 @@ function OperationButtonActived()
 {
 	for(let arithmeticId of operationId) 
 	{
-		let clickarithmeticBtn = arithmeticId.addEventListener("click",
-			function OperationFunction() 
+		let clickarithmeticBtn = arithmeticId.addEventListener("click",() =>
+		{
+			let displayingOperator = displayIdOfNumberAndOperator.append(innerText = arithmeticId.value)
+			console.log(arithmeticId.value)
+			for(var i = 0, len = operationId.length; i < len; i++)
 			{
-				let displayingOperator = displayIdOfNumberAndOperator.append(innerText = arithmeticId.value)
-				console.log(arithmeticId.value)
-				for (var i = 0, len = operationId.length; i < len; i++)
-				{
-					operationId[i].disabled = true
-				}
-			}, false)
+				operationId[i].disabled = true
+			}
+		}, false)
 	}
 }
 // Baris akhir function
@@ -135,40 +143,27 @@ function CalculationResultShow(CalculationResult)
 // Baris akhir function
 
 // Function untuk menampilkan hasil perhitungan ke layar
-function NumberAndOperatorButtonsCondition()				
+function NumberAndOperatorButtonsCondition()			 	
 {
-	for(let numberIdValue of numberIdButton)
-	{	
-		numberButtonValue = numberIdValue.value
-	}
-	for(let operationIdValue of operationId)
-	{	
-		operatorSymbolValue = operationIdValue.value
-	}
-	if(equalButtonClearElements != false) 
+	if(equalButtonClearElements != false || equalButtonClearElements != "")
 	{
 		console.log("Berhasil")
-		if(displayIdOfNumberAndOperator.childNodes != null || displayIdOfNumberAndOperator.childNodes != "")
+		switch(displayIdOfNumberAndOperator.childNodes)
 		{	
-			switch(displayIdOfNumberAndOperator.childNodes)
-			{	
-				// displayIdOfNumberAndOperator.innerText
-				case operatorSymbolValue : 
-				switch(operatorSymbolValue)
-				{
-					case "+" : for(let compareValue = 0; displayIdOfNumberAndOperator.childNodes.length > compareValue; compareValue++)
-								{
-									resultCalculationNumber = Number(displayIdOfNumberAndOperator.childNodes[compareValue]) + Number(displayIdOfNumberAndOperator.childNodes[compareValue])
-									CalculationResultShow(resultCalculationNumber)
-									break
-								}
-					break
-				}
+			case !undefined : 
+			case window.clickarithmeticBtn : 	
+			switch(window.clickarithmeticBtn)
+			{
+				case "+" :  resultCalculationNumber = Number(displayIdOfNumberAndOperator.firstChild.childNodes) + Number(displayIdOfNumberAndOperator.lastChild.childNodes)
+							CalculationResultShow(Number(resultCalculationNumber))
+				break
+				case "-" :  resultCalculationNumber = Number(displayIdOfNumberAndOperator.firstChild.childNodes) - Number(displayIdOfNumberAndOperator.lastChild.childNodes)
+							CalculationResultShow(Number(resultCalculationNumber))
 				break
 			}
+			break
 		}
-	}	
-	return resultCalculationNumber
+	}
 }
 NumberAndOperatorButtonsCondition()
-// Baris akhir function 
+// Baris akhir function                                                                                                                                                                                                                                                                                                                                                        

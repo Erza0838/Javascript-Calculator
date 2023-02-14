@@ -48,8 +48,9 @@ article.Calculator-Container
 
 article.Calculator-Container > .Output_Number
 {	
+	display: flex;
 	position: absolute;
-	flex-direction: column;
+	flex-direction: row;
 	padding-right: 1.8vmin;
 	letter-spacing: .5vw;
 	font-family: 'Source Sans Pro', sans-serif;
