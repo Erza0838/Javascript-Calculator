@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');				
+
+*
+{
+	box-sizing: border-box;
+}
+/*CSS Variable*/
+:root
+{	
+	--Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );		
+	--Calculator-Background-Color: rgba(255, 255, 255, 1.0);
+	--Box-Size: border-box;
+	--Mouse-Pointer: pointer;
+	--Button-BG: hsla(201, 56%, 31%, .7);
+	--Text-Color: hsla(100, 15%, 30%, .8);
+	--Equal-Symbol-Bg: linear-gradient(.8turn, #fb8500, #fb5607);
+	--Border-Color: rgba(243, 121 , 206, .8);
+	--Button-Number-Color: rgba(48, 48, 48, .8);
+	--Button-Number-BG: hsla(18, 71%, 82%, .8);
+	--Flexibel-Items: flex;
+}
+/*Akhir baris CSS Variable*/
+	body
+	{
+		background-image: var(--Body-Color);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow-x: hidden;
+		transform: translate(0, 13vmin);
+		box-sizing: var(--Box-Size);
+	}	
+/*Container calculator*/
+article.Calculator-Container
+{	
+	position: relative;
+	background-color: var(--Calculator-Background-Color);
+	padding: 1.2rem 1.2rem 1.2rem 1.2rem;
+	border-radius: clamp(.4rem, 1.2rem, 1.4rem);
+	width: 33vmax;
+	height: 78vmin;
+	max-width: 150vmin;
+	box-sizing: var(--Box-Size);
+}
+
+article.Calculator-Container > .Output_Number
+{	
+	display: grid;
+	grid-row: auto;
+	word-break: break-all;
+	display: flex;
+	position: absolute;
+	flex-direction: row;
+	padding-right: 1.8vmin;
+	letter-spacing: .5vw;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: bold;
+	font-size: clamp(1.5vw, 2.8vw, 1.56rem);
+	color: var(--Text-Color);
+	transform: translate(3vmin, 8vmin);
+	box-sizing: var(--Box-Size);
+}
+	article.Calculator-Container > main.Button_Container
+	{
+		position: absolute;
+		transform: translate(3.5vmin, 13vmin);
+		display: flex;		
+		flex-direction: row;
+		gap: 2vmin;
+		min-width: 20vmin;
+		min-height: 10vmin;
+		justify-content: flex-start;
+		align-content: space-between;
+	}
+
+main.Button_Container > button.Symbol_Button
+{
+	border-radius: 100%;
+	border: .2rem solid var(--Border-Color);
+	background-color: var(--Calculator-Background-Color);
+	transform: translate(0, 1vh);
+	width: 4.5vw;
+	height: 7vh;
+	box-sizing: var(--Box-Size);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: clamp(1.5vw, 1.3vw, 1vw);
+	line-height: center;
+	font-weight: bold;
+	color: var(--Text-Color);
+	cursor: var(--Mouse-Pointer);
+}
+	main.Button_Container > button:nth-child(1)
+	{
+		text-transform: uppercase;
+	}
+
+main.Button_Container > button:nth-child(5)
+{
+	text-transform: uppercase;
+	font-size: 1.2rem;
+}
+
+/*Tombol Horizontal bagian kanan*/
+button + main.Horizontal_Right
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	gap: 3.9vmin;
+	transform: translate(-11vmin, 13vmin);
+	position: relative;
+	z-index: 1;
+}
+	main.Horizontal_Right > button.Horizontal_Equal_Button
+	{	
+		border-radius: 100%;
+		border: .2rem solid var(--Border-Color);
+		background-color: var(--Calculator-Background-Color);
+		padding: .7rem .9rem .9rem .9rem;
+		display: inline-block;
+		width: 3.5rem;
+		height: 3.5rem;
+		box-sizing: var(--Box-Size);
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 1rem;
+		font-weight: bold;
+		color: var(--Text-Color);
+		cursor: var(--Mouse-Pointer);
+	}
+
+main.Horizontal_Right > button.Horizontal_Equal_Button:nth-child(1)
+{
+	font-size: 1.9rem;
+	padding: .3rem .9rem .9rem .9rem;
+}
+	
+	main.Horizontal_Right > button.Horizontal_Equal_Button:nth-child(2)
+	{
+		font-size: 1.8rem;
+		padding: .3rem .9rem .9rem .9rem;
+	}
+
+main.Horizontal_Right > button.Horizontal_Equal_Button:nth-child(3)
+{
+	border: none;
+	background-image: var(--Equal-Symbol-Bg);
+	font-size: 1.8rem;
+	color: var(--Calculator-Background-Color);
+}
+/*Akhir bagian tombol Horizontal*/
+
+/*Baris akhir Container*/
+
+	/*Container tombol angka*/
+	main.Button_Number_Container_1
+	{	
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: safe flex-start;
+		align-content: space-around;
+		gap: 6vmin;
+		align-items: space-between;
+		transform: translate(5vmin, 24vmin);
+	}
+		main.Button_Number_Container_1 > button.First_Number_Button
+		{
+			display: inline-block;
+			border: none;
+			padding: .9rem .9rem .9rem .9rem;
+			width: 3.7rem;
+			height: 3.7rem;
+			box-sizing: var(--Box-Size);
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: clamp(3.2ex, 1.3rem, 1vw);
+			font-weight: bold;
+			color: var(--Button-Number-Color);
+			cursor: var(--Mouse-Pointer);
+			border-radius: clamp(.7rem, .3rem, .6rem);
+			background-color: var(--Button-Number-BG);
+		}
+
+	main.Button_Number_Container_2
+	{	
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		gap: 6vmin;
+		align-items: space-between;
+		transform: translate(5vmin, 26vmin);
+	}
+
+		main.Button_Number_Container_2 > button.Second_Number_Button
+		{
+			display: inline-block;
+			border: none;
+			padding: .9rem .9rem .9rem .9rem;
+			width: 3.7rem;
+			height: 3.7rem;
+			box-sizing: var(--Box-Size);
+			font-family: 'Source Sans Pro', sans-serif;
+			font-size: clamp(3.2ex, 1.3rem, 1vw);
+			font-weight: bold;
+			color: var(--Button-Number-Color);
+			cursor: var(--Mouse-Pointer);
+			border-radius: clamp(.7rem, .3rem, .6rem);
+			background-color: var(--Button-Number-BG);
+		}
+
+main.Button_Number_Container_3
+{	
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: 6vmin;
+	align-items: space-between;
+	transform: translate(5vmin, 28vmin);
+}
+
+	main.Button_Number_Container_3 > button.Third_Number_Button
+	{
+		display: inline-block;
+		border: none;
+		padding: .9rem .9rem .9rem .9rem;
+		width: 3.7rem;
+		height: 3.7rem;
+		box-sizing: var(--Box-Size);
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: clamp(3.2ex, 1.3rem, 1vw);
+		font-weight: bold;
+		color: var(--Button-Number-Color);
+		cursor: var(--Mouse-Pointer);
+		border-radius: clamp(.7rem, .3rem, .6rem);
+		background-color: var(--Button-Number-BG);
+	}
+
+main.Zero_Number_Container
+{	
+	display: flex;
+	flex-direction: row;
+	justify-content: safe flex-start;
+	gap: 6vmin;
+	align-items: space-between;
+	transform: translate(5vmin, 31vmin);
+}
+
+	main.Zero_Number_Container > button.Zero_Number_Button:nth-child(1)
+	{
+		border: none;
+		padding: .9rem .9rem .9rem .9rem;
+		width: 10rem;
+		height: 3.7rem;
+		box-sizing: var(--Box-Size);
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: clamp(3.2ex, 1.3rem, 1vw);
+		font-weight: bold;
+		color: var(--Button-Number-Color);
+		cursor: var(--Mouse-Pointer);
+		border-radius: clamp(.7rem, .3rem, .6rem);
+		background-color: var(--Button-Number-BG);
+	}
+
+main.Zero_Number_Container > button.Zero_Number_Button
+{
+	border: none;
+	padding: .9rem .9rem .9rem .9rem;
+	width: 3.7rem;
+	height: 3.7rem;
+	box-sizing: var(--Box-Size);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: clamp(3.2ex, 1.3rem, 1vw);
+	font-weight: bold;
+	color: var(--Button-Number-Color);
+	cursor: var(--Mouse-Pointer);
+	border-radius: clamp(.7rem, .3rem, .6rem);
+	background-color: var(--Button-Number-BG);
+}
+	/*Baris akhir Container*/
+
+@supports(display: var(--Flexibel-Items))
+{	
+	/*Bagian lebar maksimal*/
+	@media screen and(max-width: 500px)
+	{	
+		body
+		{	
+			--Media-Body-Color: linear-gradient(to right , rgba(129, 24, 56, 1.0), rgba(159, 41, 56, .8) );
+			display: var(--Flexibel-Items);
+			justify-content: center;
+			align-items: center;
+			align-content: center;
+			background-image: var(--Media-Body-Color);
+			background-repeat: no-repeat;
+			overflow: hidden;
+			height: 120vmax;
+			width: 120vmax;
+		}
+	}	
+}

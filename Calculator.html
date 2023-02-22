@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		Calculator Sederhana
+	</title>
+	<link rel="stylesheet" type="text/css" href="Calculator_Style.css">
+	<script type="text/javascript" src="Calculate_1.js" defer></script>
+</head>
+<body>
+	<article class="Calculator-Container">
+		<!-- Untuk menampilkan angka dan operasi saat tombol di click -->
+		<div class="Output_Number" id="Display_Output_Calculate">
+		</div>
+		<div class="Output_Number" id="Display_Result">
+		</div>
+		<!-- Baris akhir code -->
+		<main class="Button_Container">
+			<button class="Symbol_Button" id="All_Clear_Button_Id">
+				ac
+			</button>
+			<button class="Symbol_Button" id="Clear_Button_Id">
+				C
+			</button>
+			<button class="Symbol_Button" id="Operation_Button_Id" value="%" disabled>
+				%
+			</button>
+			<button class="Symbol_Button" id="Operation_Button_Id" value="/" disabled>
+				/
+			</button>
+			<button class="Symbol_Button" id="Operation_Button_Id" value="*" disabled>
+				*
+			</button>
+				<main class="Horizontal_Right">
+					<button class="Horizontal_Equal_Button" id="Operation_Button_Id" value="-" disabled>
+						-
+					</button>
+					<button class="Horizontal_Equal_Button" id="Operation_Button_Id" value="+" disabled>
+						+
+					</button>
+					<button class="Horizontal_Equal_Button" id="Equal_Button_Id" disabled>
+						=
+					</button>
+				</main>    
+		</main>
+			<!-- Bagian tombol angka -->
+			<main class="Button_Number_Container_1">
+				<button class="First_Number_Button" id="Number_Button_Id" value="7">
+					7
+				</button>
+				<button class="First_Number_Button" id="Number_Button_Id" value="8">
+					8
+				</button>
+				<button class="First_Number_Button" id="Number_Button_Id" value="9">
+					9
+				</button>
+			</main>
+				<main class="Button_Number_Container_2">
+					<button class="Second_Number_Button" id="Number_Button_Id" value="4">
+						4 
+					</button>
+					<button class="Second_Number_Button" id="Number_Button_Id" value="5">
+						5
+					</button>
+					<button class="Second_Number_Button" id="Number_Button_Id" value="6">
+						6
+					</button>
+				</main>
+			<main class="Button_Number_Container_3">
+				<button class="Third_Number_Button" id="Number_Button_Id" value="1">
+					1
+				</button>
+				<button class="Third_Number_Button" id="Number_Button_Id" value="2">
+					2
+				</button>
+				<button class="Third_Number_Button" id="Number_Button_Id" value="3">
+					3
+				</button>
+			</main>
+			<main class="Zero_Number_Container">
+				<button class="Zero_Number_Button" id="Number_Button_Id" value="0">					
+					0
+				</button>
+				<button class="Zero_Number_Button" id="Dot_Button_Id" value=".">
+					.
+				</button>
+			</main>
+			<!-- Bars akhir tombol angka  -->
+	</article>
+</body>
+</html>
